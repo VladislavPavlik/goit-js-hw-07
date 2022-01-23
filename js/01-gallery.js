@@ -1,10 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
-console.log(galleryItems);
-
 const wrapper = document.querySelector('.gallery');
-
 galleryItems.forEach((element) => {
     wrapper.insertAdjacentHTML('beforeend', `
     <a class="gallery__link" href="${element.original}">
@@ -14,19 +10,16 @@ galleryItems.forEach((element) => {
       data-source="${element.original}"
       alt="${element.description}"
     />
-</a>
-    `
+</a>`
     );
 });
-wrapper.addEventListener('click', onPictureClick);
-
-function onPictureClick(evt) {
-  evt.preventDefault();
-  if (!evt.target.classList.contains('gallery__image')) {
+const onPictureClick = (event) => {
+  event.preventDefault();
+  if (!event.target.classList.contains('gallery__image')) {
     return;
   }
   const instance = basicLightbox.create(`
-    <img src="${evt.target.dataset.source}"width="1280" height="960">`);
+    <img src="${event.target.dataset.source}"width="1280" height="960">`);
   instance.show();
 
   window.addEventListener('keydown', evt => {
@@ -35,3 +28,4 @@ function onPictureClick(evt) {
     }
   });
 }
+wrapper.addEventListener('click', onPictureClick);
