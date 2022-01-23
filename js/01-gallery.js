@@ -18,12 +18,7 @@ galleryItems.forEach((element) => {
     `
     );
 });
- 
-const galleryContainer = document.querySelector('.gallery');
-const galleryMarkup = createGalleryMarkup(galleryItems);
-galleryContainer.innerHTML = galleryMarkup;
-
-galleryContainer.addEventListener('click', onPictureClick);
+wrapper.addEventListener('click', onPictureClick);
 
 function onPictureClick(evt) {
   evt.preventDefault();
