@@ -13,7 +13,7 @@ galleryItems.forEach((element) => {
 </a>`
     );
 });
-const onPictureClick = (event) => {
+const imgClick = (event) => {
   event.preventDefault();
   if (!event.target.classList.contains('gallery__image')) {
     return;
@@ -28,4 +28,4 @@ const onPictureClick = (event) => {
     }
   });
 }
-wrapper.addEventListener('click', onPictureClick);
+wrapper.addEventListener('click', imgClick);
